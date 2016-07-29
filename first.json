@@ -8,7 +8,6 @@
       "instance_type": "t2.micro",
       "ssh_username": "ubuntu",
       "subnet_id": "subnet-29c04203",
-      "ssh_keypair_name": "datagov-nhunt",
       "security_group_id": "sg-439cbc3b",
       "associate_public_ip_address": "true",
       "ami_name": "jenkins-provisioned packer image {{timestamp}}",
