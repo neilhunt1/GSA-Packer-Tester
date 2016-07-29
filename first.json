@@ -7,7 +7,11 @@
       "source_ami": "ami-2d39803a",
       "instance_type": "t2.micro",
       "ssh_username": "ubuntu",
-      "ami_name": "packer-quick-start {{timestamp}}",
+      "subnet_id": "subnet-29c04203",
+      "ssh_keypair_name": "datagov-nhunt",
+      "security-group-id": "sg-439cbc3b",
+      "associate_public_ip_address": "true",
+      "ami_name": "jenkins-provisioned packer image {{timestamp}}",
       "tags": {
         "OS_Version": "Ubuntu",
         "Release": "Latest"
