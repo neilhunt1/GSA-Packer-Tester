@@ -10,11 +10,23 @@
       "subnet_id": "subnet-29c04203",
       "security_group_id": "sg-439cbc3b",
       "associate_public_ip_address": "true",
-      "ami_name": "jenkins-provisioned packer image {{timestamp}}",
+      "ami_name": "jenkins-packer-ubuntu",
+      "ami_description": "Packer-provisioned image from Jenkins (testing purposes only, for now)",
       "tags": {
         "OS_Version": "Ubuntu",
-        "Release": "Latest"
+        "Release": "Latest",
+        "Owner": "Neil Hunt"
       }
+    }
+  ],
+  "provisioners": [
+    {
+        "type": "shell",
+        "inline": [
+            "sleep 30",
+            "sudo apt-add-repository ppa:ansible/ansible -y",
+            "sudo apt-get update && sudo apt-get install ansible -y"
+        ]
     }
   ]
 }
