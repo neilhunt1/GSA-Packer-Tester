@@ -25,15 +25,11 @@
         "inline": [
             "sleep 30",
             "sudo apt-add-repository ppa:ansible/ansible -y",
-<<<<<<< HEAD
             "sudo apt-get update && sudo apt-get install ansible -y",
             "mkdir -p /opt/ansible/roles-ubuntu/roles",
             "cd /opt/ansible/roles-ubuntu",
             "git clone https://github.com/awailly/cis-ubuntu-ansible.git roles/cis",
             "cat >>  playbook.yml << 'EOF'\n---\n  - hosts: all\n  roles:\n    - cis\nEOF"
-=======
-            "sudo apt-get update && sudo apt-get install ansible -y"
->>>>>>> branch 'master' of https://github.com/neilhunt1/GSA-Packer-Tester.git
         ]
     }
   ]
