@@ -10,7 +10,7 @@
       "subnet_id": "subnet-29c04203",
       "security_group_id": "sg-439cbc3b",
       "associate_public_ip_address": "false",
-      "ami_name": "jenkins-packer-ubuntu",
+      "ami_name": "jenkins-packer-ubuntu {{timestamp}}",
       "ami_description": "Packer-provisioned image from Jenkins (testing purposes only, for now)",
       "tags": {
         "OS_Version": "Ubuntu",
