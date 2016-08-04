@@ -4,14 +4,14 @@
     {
       "type": "amazon-ebs",
       "region": "us-east-1",
-      "source_ami": "ami-2d39803a",
+      "source_ami": "ami-8c3fac9b",
       "instance_type": "t2.micro",
       "ssh_username": "ubuntu",
       "subnet_id": "subnet-29c04203",
       "security_group_id": "sg-439cbc3b",
       "associate_public_ip_address": "false",
-      "ami_name": "jenkins-packer-ubuntu {{timestamp}}",
-      "ami_description": "Packer-provisioned image from Jenkins (testing purposes only, for now)",
+      "ami_name": "jenkins-packer-ubuntu-hardened {{timestamp}}",
+      "ami_description": "Packer-provisioned image from Jenkins, hardened for CIS standards",
       "tags": {
         "OS_Version": "Ubuntu",
         "Release": "Latest",
@@ -25,11 +25,12 @@
         "inline": [
             "sleep 30",
             "sudo apt-add-repository ppa:ansible/ansible -y",
-            "sudo apt-get update && sudo apt-get install ansible -y",
-            "mkdir -p /opt/ansible/roles-ubuntu/roles",
+            "sudo apt-get update && sudo apt-get install ansible git -y",
+            "sudo mkdir -p /opt/ansible/roles-ubuntu/roles",
             "cd /opt/ansible/roles-ubuntu",
-            "git clone https://github.com/awailly/cis-ubuntu-ansible.git roles/cis",
-            "cat >>  playbook.yml << 'EOF'\n---\n  - hosts: all\n  roles:\n    - cis\nEOF"
+            "sudo git clone https://github.com/GSA/cis-ubuntu-ansible.git roles/cis",
+            "sudo rm -f playbook.yml",
+            "sudo cat >>  playbook.yml << ---\n  - hosts: all\n  roles:\n    - cis\n"
         ]
     }
   ]
